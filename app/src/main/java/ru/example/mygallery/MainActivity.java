@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
         ArrayList<Cell> cells = prepareDate();
-        MyAdapter adapter = new MyAdapter(getApplicationContext(), cells);
+        MyAdapter adapter = new MyAdapter(MainActivity.this, cells);
         recyclerView.setAdapter(adapter);
     }
 

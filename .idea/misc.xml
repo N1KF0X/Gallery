@@ -5,6 +5,16 @@
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/myPrograms/Android Studio/Gallery/app/src/main/res/drawable/frameBigger.xml" value="0.196" />
+        <entry key="..\:/myPrograms/Android Studio/Gallery/app/src/main/res/drawable/frame_bigger.xml" value="0.1965" />
+        <entry key="..\:/myPrograms/Android Studio/Gallery/app/src/main/res/layout/activity_big_image.xml" value="0.25" />
+        <entry key="..\:/myPrograms/Android Studio/Gallery/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
