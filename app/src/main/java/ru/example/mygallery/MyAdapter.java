@@ -1,6 +1,8 @@
 package ru.example.mygallery;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +20,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private Context context;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(Context context, ArrayList<Cell> galleryList) {
+    public MyAdapter(Activity context, ArrayList<Cell> galleryList) {
         this.context = context;
         this.galleryList = galleryList;
     }
@@ -43,8 +45,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         viewHolder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO что-то может происходить, если кликнуть на изображение
-                Toast.makeText(context, "" + galleryList.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, BigImageActivity.class);
+                intent.putExtra("coverName", galleryList.get(position).getTitle());
+                context.startActivity(intent);
+                //Toast.makeText(context, "" + galleryList.get(position).getTitle(), Toast.LENGTH_SHORT).show();
             }
         });
     }

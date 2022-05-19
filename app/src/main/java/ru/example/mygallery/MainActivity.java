@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void showImages() {
         //папка со всеми изображениями
-        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Images/";
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Covers/";
         allFilesPaths = new ArrayList<>();
         allFilesPaths = listAllFiles(path);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.gallery);
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
         ArrayList<Cell> cells = prepareDate();
-        MyAdapter adapter = new MyAdapter(getApplicationContext(), cells);
+        MyAdapter adapter = new MyAdapter(MainActivity.this, cells);
         recyclerView.setAdapter(adapter);
     }
 
