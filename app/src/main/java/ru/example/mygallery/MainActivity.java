@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         allFilesPaths = listAllFiles(path);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.gallery);
         recyclerView.setHasFixedSize(true);
-        // список в 4 колонки
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 4);
+        // список в 3 колонки
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 3);
         recyclerView.setLayoutManager(layoutManager);
 
         //оптимизация
