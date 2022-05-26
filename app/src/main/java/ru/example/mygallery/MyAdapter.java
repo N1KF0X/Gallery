@@ -1,5 +1,6 @@
 package ru.example.mygallery;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -16,13 +17,15 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+    private ArrayList<String> allFilesNames;
     private ArrayList<Cell> galleryList;
     private Context context;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(Activity context, ArrayList<Cell> galleryList) {
+    public MyAdapter(Activity context, ArrayList<Cell> galleryList, ArrayList<String> allFilesNames) {
         this.context = context;
         this.galleryList = galleryList;
+        this.allFilesNames = allFilesNames;
     }
 
     // Create new views (invoked by the layout manager)
@@ -37,7 +40,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         viewHolder.img.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -47,6 +50,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             public void onClick(View v) {
                 Intent intent = new Intent(context, BigImageActivity.class);
                 intent.putExtra("coverName", galleryList.get(position).getTitle());
+                intent.putStringArrayListExtra("allFilesNames", allFilesNames);
                 context.startActivity(intent);
                 //Toast.makeText(context, "" + galleryList.get(position).getTitle(), Toast.LENGTH_SHORT).show();
             }
