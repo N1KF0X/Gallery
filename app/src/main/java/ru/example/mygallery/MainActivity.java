@@ -18,6 +18,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     List<Cell> allFilesPaths;
+    ArrayList<String> allFilesNames = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
         ArrayList<Cell> cells = prepareDate();
-        MyAdapter adapter = new MyAdapter(MainActivity.this, cells);
+        MyAdapter adapter = new MyAdapter(MainActivity.this, cells, allFilesNames);
         recyclerView.setAdapter(adapter);
     }
 
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
             for (File f : files) {
                 Cell cell = new Cell();
                 cell.setTitle(f.getName());
+                allFilesNames.add(f.getName());
                 cell.setPath(f.getAbsolutePath());
                 allFiles.add(cell);
             }
